@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt-br"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Diagnóstico Orbe</title></head>
+<body style="font-family:system-ui;background:#0b0c10;color:#e5e7eb;padding:16px">
+<h2>Diagnóstico do Navegador</h2>
+<p>Use esta página para verificar por que a lista não abre no Chrome.</p>
+<ul id="info"></ul>
+<script>
+function storageAvailable(type){try{var s=window[type],x='__test__';s.setItem(x,x);s.removeItem(x);return true;}catch(e){return false;}}
+var ul=document.getElementById('info');
+function add(k,v){ var li=document.createElement('li'); li.textContent = k + ': ' + v; ul.appendChild(li); }
+add('Protocolo', location.protocol);
+add('localStorage', storageAvailable('localStorage') ? 'OK' : 'BLOQUEADO');
+add('Cookies habilitados', navigator.cookieEnabled);
+add('User-Agent', navigator.userAgent);
+add('JavaScript', 'OK');
+</script>
+</body></html>
